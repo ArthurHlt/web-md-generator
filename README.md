@@ -54,7 +54,7 @@ For logo: Simply add a logo.(png|ico|jpg|gif) at your root website folder and re
 
 Example and demos
 -----------------
-For the example go to: 
+For the example go to: [https://github.com/ArthurHlt/web-md-generator-example](https://github.com/ArthurHlt/web-md-generator-example)
 
 Demo with `default` style with menu on top: [http://web-md-generator.arthurh.fr/default-top/](http://web-md-generator.arthurh.fr/default-top/)
 
