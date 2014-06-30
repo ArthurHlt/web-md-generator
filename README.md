@@ -11,7 +11,7 @@ It will also make a simple menu directly with your markdown files
 
 Usage
 -----
-The best way is to get the phar archive from here [web-md-generator.phar](http://cloud.arthurh.fr/public.php?service=files&t=62c09b7e6e744c9a3371e3762299cead&download).
+The best way is to get the phar archive from here [web-md-generator.phar](http://cloud.arthurh.fr/public.php?service=files&t=5bafec2b00bfc4e07793a578c50eb61a&download).
 Put this archive inside your future website with all your markdown files inside (Markdown files should have .md extension).
 Finally run:
 ```
