@@ -52,3 +52,12 @@ For favicon: Simply add a favicon.(png|ico|jpg|gif) at your root website folder 
 
 For logo: Simply add a logo.(png|ico|jpg|gif) at your root website folder and regenerate your website.
 
+Example and demos
+-----------------
+For the example go to: 
+
+Demo with `default` style with menu on top: [http://web-md-generator.arthurh.fr/default-top/](http://web-md-generator.arthurh.fr/default-top/)
+
+Demo with `default` style with menu on side: [http://web-md-generator.arthurh.fr/default-side/](http://web-md-generator.arthurh.fr/default-side/)
+
+Demo with `bootstrap` style: [http://web-md-generator.arthurh.fr/bootstrap/](http://web-md-generator.arthurh.fr/bootstrap/)
