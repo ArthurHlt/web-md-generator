@@ -35,9 +35,13 @@ scripts:
   - "js/showdown.js"
 ```
 `styles`: you can change `default` by `bootstrap` to get the bootstrap by twitter style. and add all css you want.
+
 `title`: Change title by your website name.
+
 `menuPosition`: change by `top` or `side`to have your menu on the side or on the top (only work for `default` style).
+
 `index`: set your markdown file which will use as your index.html (don't put md extension).
+
 `scripts`: add all javascript files you want (jquery is load by default).
 
 And finally regenerate your website by running again `php web-md-generator.phar`.
