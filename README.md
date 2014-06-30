@@ -49,5 +49,6 @@ And finally regenerate your website by running again `php web-md-generator.phar`
 Get a logo and favicon
 ----------------------
 For favicon: Simply add a favicon.(png|ico|jpg|gif) at your root website folder and regenerate your website.
+
 For logo: Simply add a logo.(png|ico|jpg|gif) at your root website folder and regenerate your website.
 
