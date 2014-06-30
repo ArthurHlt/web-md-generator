@@ -1,0 +1,10 @@
+styles:
+  - "themes/default.css"
+  - "//fonts.googleapis.com/css?family=Average"
+  - "//fonts.googleapis.com/css?family=Roboto:400,700"
+charset: "UTF-8"
+title: "ArthurH"
+menuPosition: "side"
+index: bio
+scripts:
+  - "js/showdown.js"

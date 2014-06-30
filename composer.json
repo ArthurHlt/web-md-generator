@@ -1,0 +1,26 @@
+{
+    "name": "arthurh/web-md-generator",
+    "description": "Create a static website from markdown files easily",
+    "minimum-stability": "stable",
+    "keywords": ["markdown generator", "static", "website", "generator", "markdown"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arthur Halet",
+            "email": "arthurh.halet@gmail.com",
+            "homepage": "http://arthruh.fr"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "ArthurH\\JrGenerator": "src/"
+        }
+    },
+    "bin": [
+        "bin/main"
+    ],
+    "require": {
+        "arhframe/util": "1.1.4",
+        "arhframe/yamlarh": "1.1.1"
+    }
+}

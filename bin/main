@@ -1,0 +1,5 @@
+<?php
+require_once __DIR__ . '/../vendor/autoload.php';
+$jrGenerate = new \ArthurH\JrGenerator\JrGenerate(getcwd());
+$jrGenerate->generate();
+echo "Your website has been generated.\n";
