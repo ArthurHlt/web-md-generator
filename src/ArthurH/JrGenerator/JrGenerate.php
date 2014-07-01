@@ -10,12 +10,14 @@ namespace ArthurH\JrGenerator;
 
 use Arhframe\Util\File;
 use Arhframe\Util\Folder;
+use Symfony\Component\Yaml\Yaml;
 
 class JrGenerate
 {
     private $footer = false;
     private $mdFiles = array();
     private $option = array();
+    private $menu = array('menu' => array());
     private $containsCssFw = array('bootstrap', 'default');
     private $css = array(
         'bootstrap' => 'themes/bootstrap/css/bootstrap.css',
@@ -40,10 +42,15 @@ class JrGenerate
         } else {
             $yamlarh = new \Arhframe\Yamlarh\Yamlarh(getcwd() . '/options.yml');
         }
+
         $this->option = $yamlarh->parse();
         $this->option['body'] = null;
         $this->option['markdownContent'] = null;
         $this->option['plugins'] = array();
+        if (is_file(getcwd() . '/menu.yml')) {
+            $yamlarh = new \Arhframe\Yamlarh\Yamlarh(getcwd() . '/menu.yml');
+            $this->menu = $yamlarh->parse();
+        }
     }
 
     public function recurseCopy($src, $dst, $firstFolder = true)
@@ -80,16 +87,14 @@ class JrGenerate
 
     public function generateHtml()
     {
-        $fileMarkdown = new File($this->folderPath . '/old/file.koi');
-        $fileMarkdown->createFolder();
         foreach ($this->mdFiles as $mdFile) {
             $content = $mdFile->getContent();
-            $fileMarkdown->setBase($mdFile->getBase());
-            $fileMarkdown->setExtension('md');
-            $fileMarkdown->setContent($content);
             $mdFile->remove();
             if ($mdFile->getBase() == $this->option['index']) {
                 $mdFile->setBase('index');
+            }
+            if (!$this->isInMenu($mdFile->getBase())) {
+                $this->menu['menu'][] = array($mdFile->getBase() => $mdFile->getBase());
             }
             $mdFile->setExtension($this->finalExtension);
             $mdFile->setContent("$content\n<script src=\"" . $this->jqueryUrl . "\"></script>\n<script src=\"js/options.js\"></script>\n<script src=\"js/jr.js\"></script>");
@@ -97,6 +102,20 @@ class JrGenerate
                 $this->footer = true;
             }
         }
+        $fileMenu = new File(getcwd() . '/menu.yml');
+        $fileMenu->setContent(Yaml::dump($this->menu));
+    }
+
+    public function isInMenu($base)
+    {
+        foreach ($this->menu['menu'] as $menu) {
+            foreach ($menu as $menuName => $value) {
+                if ($menuName == $base) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public function generateFooter()
@@ -165,14 +184,9 @@ class JrGenerate
         }
 
         $content = '<nav class="' . $class . '"><ul>';
-        foreach ($this->mdFiles as $mdFile) {
-            if ($mdFile->getBase() == 'index') {
-                $base = $this->option['index'];
-            } else {
-                $base = $mdFile->getBase();
-            }
-            $content .= '<li><a href="' . $mdFile->getBase() . '.' . $this->finalExtension . '">'
-                . $base . '</a></li>';
+        foreach ($this->menu['menu'] as $menu) {
+            $content .= '<li><a href="' . key($menu) . '.' . $this->finalExtension . '">'
+                . current($menu) . '</a></li>';
         }
         $content .= '</ul></nav>';
         return $content;
@@ -191,16 +205,9 @@ class JrGenerate
           <a class="brand" href="index.html">' . $this->option['title'] . '</a>
           <div class="nav-collapse collapse">
             <ul class="nav">';
-        foreach ($this->mdFiles as $mdFile) {
-            if ($mdFile->getBase() == 'index') {
-                $base = $this->option['index'];
-                $class = 'active';
-            } else {
-                $base = $mdFile->getBase();
-                $class = '';
-            }
-            $content .= '<li class"' . $class . '"><a href="' . $mdFile->getBase() . '.' . $this->finalExtension . '">'
-                . $base . '</a></li>';
+        foreach ($this->menu['menu'] as $menu) {
+            $content .= '<li><a href="' . key($menu) . '.' . $this->finalExtension . '">'
+                . current($menu) . '</a></li>';
         }
         $content .= '
             </ul>
@@ -214,6 +221,9 @@ class JrGenerate
     public function getFwCssStyle()
     {
         $keyToRemove = null;
+        if (!is_array($this->option['styles'])) {
+            return;
+        }
         foreach ($this->option['styles'] as $key => $style) {
             if (in_array($style, $this->containsCssFw)) {
                 $keyToRemove = $key;

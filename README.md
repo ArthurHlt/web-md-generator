@@ -11,13 +11,13 @@ It will also make a simple menu directly with your markdown files
 
 Usage
 -----
-The best way is to get the phar archive from here [web-md-generator.phar](http://cloud.arthurh.fr/public.php?service=files&t=62c09b7e6e744c9a3371e3762299cead&download).
+The best way is to get the phar archive from here [web-md-generator.phar](http://cloud.arthurh.fr/public.php?service=files&t=8055f79db35f9a6b1f37be97598e0920&download).
 Put this archive inside your future website with all your markdown files inside (Markdown files should have .md extension).
 Finally run:
 ```
 php web-md-generator.phar
 ```
-
+After you can simply add other markdown files and regenerate to add in your menu. And you can also simply modified `.html` generated, it's still markdown inside so it will be easy to modify.
 Change your option.yml
 ----------------------
 When you will generate your website you will have a new `options.yml` created.
@@ -51,4 +51,13 @@ Get a logo and favicon
 For favicon: Simply add a favicon.(png|ico|jpg|gif) at your root website folder and regenerate your website.
 
 For logo: Simply add a logo.(png|ico|jpg|gif) at your root website folder and regenerate your website.
+
+Custom your menu
+----------------
+When you generate you will have a `menu.yml`, you can modify it to set link and/or menu name.
+```yaml
+menu:
+    - { index: 'read me' } #on the left file without .html extension and on the right your menu name
+    - { 'who am i': 'who am i' }
+```
 
