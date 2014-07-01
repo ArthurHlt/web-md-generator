@@ -12,9 +12,10 @@ It will also make a simple menu directly with your markdown files
 Usage
 -----
 The best way is to get the phar archive from here [web-md-generator.phar](http://cloud.arthurh.fr/public.php?service=files&t=8055f79db35f9a6b1f37be97598e0920&download).
+
 Put this archive inside your future website with all your markdown files inside (Markdown files should have .md extension).
 Finally run:
-```
+```shell
 php web-md-generator.phar
 ```
 After you can simply add other markdown files and regenerate to add in your menu. And you can also simply modified `.html` generated, it's still markdown inside so it will be easy to modify.
@@ -61,3 +62,12 @@ menu:
     - { 'who am i': 'who am i' }
 ```
 
+Example and demos
+-----------------
+For the example go to: [https://github.com/ArthurHlt/web-md-generator-example](https://github.com/ArthurHlt/web-md-generator-example)
+
+Demo with `default` style with menu on top: [http://web-md-generator.arthurh.fr/default-top/](http://web-md-generator.arthurh.fr/default-top/)
+
+Demo with `default` style with menu on side: [http://web-md-generator.arthurh.fr/default-side/](http://web-md-generator.arthurh.fr/default-side/)
+
+Demo with `bootstrap` style: [http://web-md-generator.arthurh.fr/bootstrap/](http://web-md-generator.arthurh.fr/bootstrap/)
