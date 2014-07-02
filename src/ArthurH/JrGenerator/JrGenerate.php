@@ -38,7 +38,7 @@ class JrGenerate
         $this->getMdFiles();
         if (!is_file(getcwd() . '/options.yml')) {
             $yamlarh = new \Arhframe\Yamlarh\Yamlarh(__DIR__ . '/../../../options.yml');
-            copy(__DIR__ . '/../../../options.yml', $folder);
+            copy(__DIR__ . '/../../../options.yml', $folder .'/options.yml');
         } else {
             $yamlarh = new \Arhframe\Yamlarh\Yamlarh(getcwd() . '/options.yml');
         }
