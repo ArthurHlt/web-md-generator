@@ -9,7 +9,7 @@ It is a static website generator.
 It will takes all your markdown files from a folder and make a real website (Thanks to [jr](https://github.com/Xeoncross/jr)).
 It will also make a simple menu directly with your markdown files
 
-Usage - jo
+Usage
 -----
 The best way is to get the phar archive from here [web-md-generator.phar](http://cloud.arthurh.fr/public.php?service=files&t=aaf3cdad4a9147fee9ffd4fe96605843&download).
 
